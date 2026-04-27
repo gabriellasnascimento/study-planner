@@ -4,7 +4,7 @@
 Study Planner is a web application designed for college students who want a simple and organized way to manage assignments, deadlines, and study sessions. It helps users stay on track by letting them add tasks, sort and filter them, track progress, and use a Pomodoro study timer.
 
 ## Live Demo URL
-
+https://gabriellasnascimento.github.io/study-planner/
 
 ## Features
 - Navigation between 3 views: Dashboard, Tasks, and Study Timer
