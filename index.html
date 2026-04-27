@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Study Planner web app for organizing assignments, deadlines, and study sessions." />
+  <title>Study Planner</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div>
+        <h1>Study Planner</h1>
+        <p class="tagline">Plan smarter. Study better.</p>
+      </div>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="secondary-btn" aria-label="Toggle dark mode">Toggle Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container nav-links">
+      <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+      <button class="nav-btn" data-view="tasks">Tasks</button>
+      <button class="nav-btn" data-view="timer">Study Timer</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Dashboard View -->
+    <section id="dashboard" class="view active-view">
+      <div class="hero-card">
+        <h2>Your Study Dashboard</h2>
+        <p>Keep track of your assignments, progress, and study time in one place.</p>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <h3>Total Tasks</h3>
+          <p id="totalTasks">0</p>
+        </article>
+
+        <article class="stat-card">
+          <h3>Completed</h3>
+          <p id="completedTasks">0</p>
+        </article>
+
+        <article class="stat-card">
+          <h3>Overdue</h3>
+          <p id="overdueTasks">0</p>
+        </article>
+
+        <article class="stat-card">
+          <h3>Focus Sessions</h3>
+          <p id="focusSessions">0</p>
+        </article>
+      </div>
+
+      <div class="card">
+        <h3>Upcoming Tasks</h3>
+        <div id="dashboardTaskPreview" class="task-preview-list">
+          <p class="empty-message">No tasks yet. Add one in the Tasks section.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tasks View -->
+    <section id="tasks" class="view">
+      <div class="grid-two">
+        <div class="card">
+          <h2>Add a Task</h2>
+
+          <form id="taskForm" novalidate>
+            <div class="form-group">
+              <label for="taskTitle">Task Title</label>
+              <input type="text" id="taskTitle" name="taskTitle" placeholder="Ex: Finish economics notes" />
+            </div>
+
+            <div class="form-group">
+              <label for="taskCourse">Course / Category</label>
+              <input type="text" id="taskCourse" name="taskCourse" placeholder="Ex: Economics" />
+            </div>
+
+            <div class="form-group">
+              <label for="taskDate">Due Date</label>
+              <input type="date" id="taskDate" name="taskDate" />
+            </div>
+
+            <div class="form-group">
+              <label for="taskPriority">Priority</label>
+              <select id="taskPriority" name="taskPriority">
+                <option value="High">High</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="taskNotes">Notes</label>
+              <textarea id="taskNotes" name="taskNotes" rows="4" placeholder="Add extra details here..."></textarea>
+            </div>
+
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+
+            <button type="submit" class="primary-btn">Add Task</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>Task Manager</h2>
+
+          <div class="toolbar">
+            <div class="toolbar-group">
+              <label for="filterStatus">Filter</label>
+              <select id="filterStatus">
+                <option value="all">All</option>
+                <option value="upcoming">Upcoming</option>
+                <option value="completed">Completed</option>
+                <option value="overdue">Overdue</option>
+              </select>
+            </div>
+
+            <div class="toolbar-group">
+              <label for="sortTasks">Sort By</label>
+              <select id="sortTasks">
+                <option value="date-asc">Due Date (Soonest)</option>
+                <option value="date-desc">Due Date (Latest)</option>
+                <option value="priority">Priority</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="taskList" class="task-list">
+            <p class="empty-message">No tasks added yet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timer View -->
+    <section id="timer" class="view">
+      <div class="card timer-card">
+        <h2>Pomodoro Study Timer</h2>
+        <p>Use this timer to stay focused during study sessions.</p>
+
+        <div id="timerDisplay" class="timer-display">25:00</div>
+
+        <div class="timer-controls">
+          <button id="startTimer" class="primary-btn">Start</button>
+          <button id="pauseTimer" class="secondary-btn">Pause</button>
+          <button id="resetTimer" class="secondary-btn">Reset</button>
+        </div>
+
+        <p class="timer-note">Each finished 25-minute session will be added to your dashboard.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Study Planner. Built for OIM3690 Final Project.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
